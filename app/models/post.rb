@@ -1,10 +1,10 @@
 class Post < ActiveRecord::Base
-belongs_to :author
+ 
+  belongs_to :author
   validate :is_title_case 
  
   before_validation :make_title_case 
  
-# New Code!!
   before_save :email_author_about_post
  
   private
@@ -18,5 +18,4 @@ belongs_to :author
   def make_title_case
     self.title = self.title.titlecase
   end
-
 end
